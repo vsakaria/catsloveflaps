@@ -114,7 +114,7 @@
       "!node_modules/",
       "!src/serviceWorker.ts",
       "!src/react-app-env.d.ts",
-      "!src/**/index.{ts,tsx}",
+      "!src/index.{ts,tsx}",
       "!src/**/I[A-Z]*.ts",
       "!src/shared/store/applicationStore.ts",
       "!src/App.tsx",
