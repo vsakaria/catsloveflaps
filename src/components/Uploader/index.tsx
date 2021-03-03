@@ -1,4 +1,5 @@
 import React, { ReactElement, useState } from "react";
+import { api } from "../../api";
 import styles from "./Uploader.module.css";
 
 const Upload = (): ReactElement => {
@@ -6,7 +7,9 @@ const Upload = (): ReactElement => {
   const [previewImage, setPreviewImage] = useState<string | null>(null)
 
   const handleUploadChange = (event: any): void => {
-    setPreviewImage(URL.createObjectURL(event.target.files[0]))
+    const file = event.target.files[0]
+    setPreviewImage(URL.createObjectURL(file))
+    api.post.images(file)
   }
 
   return (
