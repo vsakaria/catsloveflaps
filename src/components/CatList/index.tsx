@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
-import styles from "./styles/Main.module.css";
+import styles from "./CatList.module.css";
 
-const Main = (): ReactElement => {
+const CatList = (): ReactElement => {
   return (
     <section className={styles.main}>
       <h1 className="primary-color">React Accelertor</h1>
@@ -9,4 +9,4 @@ const Main = (): ReactElement => {
   );
 };
 
-export default Main;
+export default CatList;

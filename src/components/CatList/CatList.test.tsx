@@ -2,12 +2,12 @@ import React from "react";
 
 import { cleanup, render } from "@testing-library/react";
 
-import Main from "../Main";
+import CatList from ".";
 
 afterAll(cleanup);
 
-test("Main displays the correct title", () => {
-  const { getByText } = render(<Main />);
+test("CatList displays the correct title", () => {
+  const { getByText } = render(<CatList />);
   expect(getByText('React Accelertor')).toBeInTheDocument();
 
 });
