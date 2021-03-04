@@ -2,6 +2,7 @@ import { catKey } from './keys';
 import axios from "axios";
 import { post } from './post'
 import { get } from './get'
+import { erase } from './erase'
 
 export const baseRequest = axios.create({
   baseURL: "https://api.thecatapi.com/v1",
@@ -11,4 +12,4 @@ export const baseRequest = axios.create({
   }
 });
 
-export const api = { post, get }
+export const api = { post, get, erase }
