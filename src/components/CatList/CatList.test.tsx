@@ -8,6 +8,6 @@ afterAll(cleanup);
 
 test("CatList displays the correct title", () => {
   const { getByText } = render(<CatList />);
-  expect(getByText('React Accelertor')).toBeInTheDocument();
+  expect(getByText('Cats Love Flaps')).toBeInTheDocument();
 
 });
