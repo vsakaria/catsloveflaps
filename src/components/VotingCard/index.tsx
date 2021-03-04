@@ -7,14 +7,20 @@ import thumbsDown from '../../assets/images/thumbs-down.svg';
 
 import styles from "./VotingCard.module.css";
 import useFavourite from "../../hooks/useFavourite/useFavourite";
+import useVotes from "../../hooks/useVotes/useVotes";
 
 const VotingCard = ({ imageSrc, id }: { imageSrc: string, id: string }): ReactElement => {
 
-  const [, favouriteId, favourite, unFavourite] = useFavourite()
+  const [favouriteId, favourite, unFavourite] = useFavourite()
+  const [vote] = useVotes()
   const [displayFavorited, setDisplayFavorited] = useState(false)
 
   const onFavClick = (): void => {
     (displayFavorited) ? unFavourite(favouriteId) : favourite(id)
+  }
+
+  const onVoteClick = (upDown: number): void => {
+    vote(id, upDown)
   }
 
   const updateFavourite = (): void => {
@@ -30,8 +36,8 @@ const VotingCard = ({ imageSrc, id }: { imageSrc: string, id: string }): ReactEl
       <img className="col-sm-12 mb-3" src={imageSrc} alt={id} />
       { displayFavorited ? favorite() : unFavorite()}
 
-      <img onClick={onFavClick} alt="thumbsUp" src={thumbsUp} className={`${styles.icon} col-sm-3 col-xs-2 mb-3`} />
-      <img onClick={onFavClick} alt="thumbsDown" src={thumbsDown} className={`${styles.icon} col-sm-3 col-xs-2 mb-3`} />
+      <img onClick={(): void => onVoteClick(1)} alt="thumbsUp" src={thumbsUp} className={`${styles.icon} col-sm-3 col-xs-2 mb-3`} />
+      <img onClick={(): void => onVoteClick(0)} alt="thumbsDown" src={thumbsDown} className={`${styles.icon} col-sm-3 col-xs-2 mb-3`} />
     </ >
   );
 };
