@@ -1,3 +1,4 @@
 import { images } from "./images";
 import { favourites } from "./favourites"
-export const post = { images, favourites }
+import { votes } from "./votes"
+export const post = { images, favourites, votes }
