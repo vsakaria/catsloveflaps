@@ -1,2 +1,4 @@
 import { images } from "./images";
-export const get = { images }
+import { votes } from "./votes";
+
+export const get = { images, votes }
