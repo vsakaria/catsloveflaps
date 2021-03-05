@@ -8,8 +8,9 @@ import thumbsDown from '../../assets/images/thumbs-down.svg';
 import styles from "./VotingCard.module.css";
 import useFavourite from "../../hooks/useFavourite/useFavourite";
 import useVotes from "../../hooks/useVotes/useVotes";
+import { Col, Row } from "reactstrap";
 
-const VotingCard = ({ imageSrc, id }: { imageSrc: string, id: string }): ReactElement => {
+const VotingCard = ({ imageSrc, id, voteCount }: { imageSrc: string, id: string, voteCount: number }): ReactElement => {
 
   const [favouriteId, favourite, unFavourite] = useFavourite()
   const [vote] = useVotes()
@@ -28,16 +29,30 @@ const VotingCard = ({ imageSrc, id }: { imageSrc: string, id: string }): ReactEl
   }
   useEffect(updateFavourite, [favouriteId])
 
-  const favorite = (): ReactElement => (<img onClick={onFavClick} alt="favorite" src={heart} className={`${styles.icon} col-sm-3 col-xs-2 mb-3`} />)
-  const unFavorite = (): ReactElement => (<img onClick={onFavClick} alt="unFavorite" src={outlineHeart} className={`${styles.icon} col-sm-3 col-xs-2 mb-3`} />)
+  const favorite = (): ReactElement => (<img onClick={onFavClick} alt="favorite" src={heart} className={`${styles.icon} `} />)
+  const unFavorite = (): ReactElement => (<img onClick={onFavClick} alt="unFavorite" src={outlineHeart} className={`${styles.icon}   `} />)
 
   return (
     <>
-      <img className="col-sm-12 mb-3" src={imageSrc} alt={id} />
-      { displayFavorited ? favorite() : unFavorite()}
-
-      <img onClick={(): void => onVoteClick(1)} alt="thumbsUp" src={thumbsUp} className={`${styles.icon} col-sm-3 col-xs-2 mb-3`} />
-      <img onClick={(): void => onVoteClick(0)} alt="thumbsDown" src={thumbsDown} className={`${styles.icon} col-sm-3 col-xs-2 mb-3`} />
+      <Row>
+        <Col>
+          <img className="col-sm-12 mb-3" src={imageSrc} alt={id} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          {displayFavorited ? favorite() : unFavorite()}
+        </Col>
+        <Col>
+          <img onClick={(): void => onVoteClick(1)} alt="thumbsUp" src={thumbsUp} className={`${styles.icon}`} />
+        </Col>
+        <Col>
+          <img onClick={(): void => onVoteClick(0)} alt="thumbsDown" src={thumbsDown} className={`${styles.icon}`} />
+        </Col>
+        <Col>
+          <div className={`d-inline`}>{voteCount}</div>
+        </Col>
+      </Row>
     </ >
   );
 };

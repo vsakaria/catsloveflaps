@@ -1,24 +1,20 @@
-import React, { ReactElement, useEffect } from "react";
+import React, { ReactElement } from "react";
 import { Alert, Col, Container, Row, Spinner } from "reactstrap";
-import useGetImages from "../../hooks/useGetImages/useGetImages";
+import useCatVotes from "../../hooks/useGetCatVotes/useCatVotes";
 import VotingCard from "../VotingCard";
 import styles from "./CatList.module.css";
 
 const CatList = (): ReactElement => {
 
-  const [loading, errorMessage, cats, getImages] = useGetImages()
-
-  useEffect(() => {
-    if (!cats) getImages()
-  }, [cats, getImages])
+  const [loading, errorMessage, cats] = useCatVotes()
 
   return (
     <Container className={styles.main}>
       <Row>
-        <Col md="12">
+        <Col>
           <section>
-            <h1 className="primary-color col-md-4 d-inline-block">Cats Love Flaps</h1>
-            {loading && <Spinner className="col-md-4" color="success" style={{ width: '2rem', height: '2rem' }} type="grow" />}
+            <h1 className="primary-color">Cats Love Flaps</h1>
+            {loading && <Spinner color="success" style={{ width: '2rem', height: '2rem' }} type="grow" />}
           </section>
         </Col>
       </Row>
@@ -27,14 +23,14 @@ const CatList = (): ReactElement => {
         {cats && cats.map((cat: any) => {
           return (
 
-            <div className="col-sm-3 col-xs-1 mb-3" key={cat.id}>
-              <VotingCard imageSrc={cat.url} id={cat.id} />
+            <div className="col-sm-3 mb-3" key={cat.id}>
+              <VotingCard imageSrc={cat.url} id={cat.id} voteCount={cat.vote} />
             </div>
           )
         })}
       </Row>
 
-      {errorMessage && (<Col xs="12">
+      {errorMessage && (<Col>
         <Alert color="danger">
           {errorMessage}
         </Alert>

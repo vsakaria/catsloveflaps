@@ -27,26 +27,23 @@ const Upload = (): ReactElement => {
   return (
     <Container>
       <Row>
-        <Col xs="12">
+        <Col>
           <section className={styles.main}>
-            <h1 className="primary-color col-md-3 d-inline-block">Uploader</h1>
-            {loading && <Spinner className="col-md-4" color="success" style={{ width: '2rem', height: '2rem' }} type="grow" />}
+            <h1 className="primary-color col-sm-12 d-inline-block">Uploader</h1>
+            {loading && <Spinner className="col-sm-4" color="success" style={{ width: '2rem', height: '2rem' }} type="grow" />}
 
-            <Col xs="12">
-              {errorMesaage && <Alert className="" color="danger">
-                {errorMesaage}
-              </Alert>}
-            </Col>
+            {errorMesaage && <Alert className="" color="danger">
+              {errorMesaage}
+            </Alert>}
 
-
-            <form className="col-md-12 mb-5" id="upload_form" encType="multipart/form-data" onSubmit={handleSubmit}>
+            <form className="col-sm-12 mb-5" id="upload_form" encType="multipart/form-data" onSubmit={handleSubmit}>
               <input type="file" accept="image/png, image/jpeg" onChange={handleUploadChange} />
               {file && <button>Upload</button>}
             </form>
 
             {file && (
               <div>
-                <img className="preview col-md-6" src={URL.createObjectURL(file)} alt="previewImage" />
+                <img className="preview col-sm-6" src={URL.createObjectURL(file)} alt="previewImage" />
               </div>
             )}
           </section>
