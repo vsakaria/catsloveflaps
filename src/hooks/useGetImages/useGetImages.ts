@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../../api";
 
 const useGetImages = (): any => {
@@ -19,6 +19,10 @@ const useGetImages = (): any => {
         setErrorMessage(error.response.data.message)
       });
   }
+
+  useEffect(() => {
+    getImages()
+  }, [])
 
   return [loading, errorMesaage, cats, getImages]
 
