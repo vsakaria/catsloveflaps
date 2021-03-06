@@ -1,8 +1,9 @@
 import React from "react";
 
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
 
 import Uploader from ".";
+import { Simulate } from "react-dom/test-utils";
 
 afterAll(cleanup);
 
@@ -11,3 +12,19 @@ test("Uploader displays the correct title", () => {
   expect(getByText('Uploader')).toBeInTheDocument();
 
 });
+
+test('can select an image and upload will make a request to upload it', async () => {
+
+  const { getByLabelText, getByText } = render(
+    <Uploader />,
+  )
+  const file = new File(['(⌐□_□)'], 'chucknorris.png', { type: 'image/png' })
+  const imageInput = getByLabelText('Image Upload')
+  Simulate.change(imageInput, { target: { files: [file] } })
+
+  await waitFor(() => screen.findByAltText('previewImage'))
+  expect(screen.getByAltText('previewImage')).toBeInTheDocument()
+
+  // ensure the form is submittable
+  expect(getByText('Upload')).toBeInTheDocument()
+})
