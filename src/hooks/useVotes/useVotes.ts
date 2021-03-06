@@ -5,8 +5,8 @@ const useVotes = (): any => {
 
   const [votes, setVotes] = useState(null)
 
-  const vote = (imageId: string, vote: number): void => {
-    api.post.votes(imageId, vote)
+  const vote = (imageId: string, vote: number): Promise<any> => {
+    return api.post.votes(imageId, vote)
   }
 
   const getVotes = (): void => {
