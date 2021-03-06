@@ -12,9 +12,10 @@ import { Col, Row } from "reactstrap";
 
 const VotingCard = ({ imageSrc, id, voteCount }: { imageSrc: string, id: string, voteCount: number }): ReactElement => {
 
-  const [favouriteId, favourite, unFavourite] = useFavourite()
   const [vote] = useVotes()
+  const [favouriteId, favourite, unFavourite] = useFavourite()
   const [displayFavorited, setDisplayFavorited] = useState(false)
+  const [voteCounter, setVoteCounter] = useState(voteCount)
 
   const onFavClick = (): void => {
     (displayFavorited) ? unFavourite(favouriteId) : favourite(id)
@@ -40,17 +41,17 @@ const VotingCard = ({ imageSrc, id, voteCount }: { imageSrc: string, id: string,
         </Col>
       </Row>
       <Row>
-        <Col>
+        <Col sm="3">
           {displayFavorited ? favorite() : unFavorite()}
         </Col>
-        <Col>
+        <Col sm="3">
           <img onClick={(): void => onVoteClick(1)} alt="thumbsUp" src={thumbsUp} className={`${styles.icon}`} />
         </Col>
-        <Col>
+        <Col sm="3">
           <img onClick={(): void => onVoteClick(0)} alt="thumbsDown" src={thumbsDown} className={`${styles.icon}`} />
         </Col>
-        <Col>
-          <div className={`d-inline`}>{voteCount}</div>
+        <Col sm="3">
+          <div className={`d-inline`}>{voteCounter}</div>
         </Col>
       </Row>
     </ >
