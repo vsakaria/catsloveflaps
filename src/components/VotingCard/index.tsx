@@ -42,25 +42,24 @@ const VotingCard = ({ imageSrc, id, voteCount }: { imageSrc: string, id: string,
   }
   useEffect(updateFavourite, [favouriteId])
 
-  const favorite = (): ReactElement => (<img onClick={onFavClick} alt="favorite" src={heart} className={`${styles.icon} `} />)
-  const unFavorite = (): ReactElement => (<img onClick={onFavClick} alt="unFavorite" src={outlineHeart} className={`${styles.icon}   `} />)
+  const favorite = (): ReactElement => (<img onClick={onFavClick} alt="favorite" src={heart} className={`ml-4`} />)
+  const unFavorite = (): ReactElement => (<img onClick={onFavClick} alt="unFavorite" src={outlineHeart} className={`ml-4 `} />)
 
   return (
     <>
-      <Row>
-        <Col>
-          <img className="col-sm-12 mb-3" src={imageSrc} alt={id} />
-        </Col>
-      </Row>
+      <Col>
+        <img className="col-sm-12 mb-3" src={imageSrc} alt={id} />
+      </Col>
+
       <Row>
         <Col>
           {displayFavorited ? favorite() : unFavorite()}
         </Col>
         <Col>
-          <img onClick={(): void => onVoteClick(1)} alt="thumbsUp" src={thumbsUp} className={`${styles.icon}`} />
+          <img onClick={(): void => onVoteClick(1)} alt="thumbsUp" src={thumbsUp} />
         </Col>
         <Col>
-          <img onClick={(): void => onVoteClick(0)} alt="thumbsDown" src={thumbsDown} className={`${styles.icon}`} />
+          <img onClick={(): void => onVoteClick(0)} alt="thumbsDown" src={thumbsDown} />
         </Col>
         <Col>
           <div className={`d-inline`}>{voteCounter}</div>

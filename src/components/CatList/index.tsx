@@ -12,7 +12,7 @@ const CatList = (): ReactElement => {
     <Container className={styles.main}>
       <Row>
         <Col>
-          <section>
+          <section className="mt-4 ml-4 mb-4">
             <h1 className="primary-color">Cats Love Flaps</h1>
             {loading && <Spinner color="success" style={{ width: '2rem', height: '2rem' }} type="grow" />}
           </section>
@@ -22,8 +22,7 @@ const CatList = (): ReactElement => {
       <Row>
         {cats && cats.map((cat: any) => {
           return (
-
-            <div className="col-sm-3 mb-3" key={cat.id}>
+            <div className="col-sm-3 mb-5" key={cat.id}>
               <VotingCard imageSrc={cat.url} id={cat.id} voteCount={cat.vote} />
             </div>
           )
