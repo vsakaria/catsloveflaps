@@ -45,7 +45,7 @@ const Upload = (): ReactElement => {
             </Alert>}
 
             <form className="col-sm-12 mb-5" id="upload_form" encType="multipart/form-data" onSubmit={handleSubmit}>
-              <label htmlFor="upload">Image Upload</label>
+              <label className="d-block" htmlFor="upload">Image Upload</label>
               <input id="upload" type="file" accept="image/png, image/jpeg" onChange={handleUploadChange} />
               {file && <button>Upload</button>}
             </form>
