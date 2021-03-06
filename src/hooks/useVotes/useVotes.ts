@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { api } from "../../api";
 
 const useVotes = (): any => {
@@ -15,10 +15,6 @@ const useVotes = (): any => {
         setVotes(res.data)
       })
   }
-
-  useEffect(() => {
-    getVotes()
-  }, [])
 
   return [vote, votes, getVotes]
 }

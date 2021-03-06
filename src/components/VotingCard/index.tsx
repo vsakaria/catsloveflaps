@@ -23,6 +23,9 @@ const VotingCard = ({ imageSrc, id, voteCount }: { imageSrc: string, id: string,
 
   const onVoteClick = (upDown: number): void => {
     vote(id, upDown)
+
+    const voteType = upDown === 0 ? -1 : 1
+    setVoteCounter(voteCounter + voteType)
   }
 
   const updateFavourite = (): void => {
