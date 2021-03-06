@@ -37,14 +37,14 @@ const Upload = (): ReactElement => {
       <Row>
         <Col>
           <section className={styles.main}>
-            <h1 className="primary-color col-sm-12 d-inline-block">Uploader</h1>
+            <h1 className="primary-color d-inline-block">Uploader</h1>
             {loading && <Spinner className="col-sm-4" color="success" style={{ width: '2rem', height: '2rem' }} type="grow" />}
 
             {errorMesaage && <Alert className="" color="danger">
               {errorMesaage}
             </Alert>}
 
-            <form className="col-sm-12 mb-5" id="upload_form" encType="multipart/form-data" onSubmit={handleSubmit}>
+            <form className="mb-5" id="upload_form" encType="multipart/form-data" onSubmit={handleSubmit}>
               <label className="d-block" htmlFor="upload">Image Upload</label>
               <input id="upload" type="file" accept="image/png, image/jpeg" onChange={handleUploadChange} />
               {file && <button>Upload</button>}
