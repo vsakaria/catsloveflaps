@@ -13,9 +13,13 @@ import { Col, Row } from "reactstrap";
 const VotingCard = ({ imageSrc, id, voteCount }: { imageSrc: string, id: string, voteCount: number }): ReactElement => {
 
   const [vote] = useVotes()
+  const [voteCounter, setVoteCounter] = useState(voteCount)
   const [favouriteId, favourite, unFavourite] = useFavourite()
   const [displayFavorited, setDisplayFavorited] = useState(false)
-  const [voteCounter, setVoteCounter] = useState(voteCount)
+
+  /*
+    Handlers
+  */
 
   const onFavClick = (): void => {
     (displayFavorited) ? unFavourite(favouriteId) : favourite(id)
@@ -28,6 +32,10 @@ const VotingCard = ({ imageSrc, id, voteCount }: { imageSrc: string, id: string,
         setVoteCounter(voteCounter + voteType)
       })
   }
+
+  /*
+    Side Effects
+  */
 
   const updateFavourite = (): void => {
     (favouriteId) ? setDisplayFavorited(true) : setDisplayFavorited(false)

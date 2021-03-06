@@ -10,6 +10,10 @@ const Upload = (): ReactElement => {
   const [file, setFile] = useState<string | null>(null)
   const [loading, success, errorMesaage, upload] = useUpload()
 
+  /*
+    Handlers
+  */
+
   const handleUploadChange = (event: any): void => {
     setFile(event.target.files[0])
   }
@@ -18,6 +22,10 @@ const Upload = (): ReactElement => {
     event.preventDefault()
     upload(file)
   }
+
+  /*
+    Side Effects
+  */
 
   const onSuccessRedirect = (): void => {
     if (success) history.push('/')
