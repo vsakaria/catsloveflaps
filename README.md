@@ -1,5 +1,11 @@
 # React Accelerator seed project
 
+# Cats code test
+
+This app is based on a seeder app that I have been working for the last year in order to keep up with best practices.
+
+Info on the seeder project is below.
+
 # Installation.
 
 Do not use `npm` to build this appllication.
@@ -20,6 +26,7 @@ Run `yarn start`
 # Running Tests
 
 ## React Testing Library
+
 The project now uses RTL in light of a desire to move towards integration tests with the spirit of testing how and what the end user would see and do.
 
 Kent C. Dodds blog post explains a shift towards integration test very well.
@@ -28,6 +35,7 @@ https://kentcdodds.com/blog/unit-vs-integration-vs-e2e-tests
 Move notes of RTL will be coming soon...
 
 ## Enzyme is still available in the project but it is highly recommended to use React Testing Library
+
 The project uses both Jest Snapshot testing and enzymes DOM query testing. Black box and White box testing respectively.
 You should use Snapshot testing for components that have no moving parts ie. no state and simply render some markup based on props. Enzyme is used for more dynamic components such as one which have click event or state changes.
 
@@ -68,13 +76,13 @@ See: https://github.com/css-modules/css-modules for more info.
 There are 3 level of error capturing within the application.
 
 1. Component level.
-When errors occur within a component, for exmaple `toString()` being called on a property which is a `number` the `ErrorBoundary` captures this and displays JSX with an error message. The root `App.tsx` is wrapped in an `ErrorBoundary` component which means all component level errors are captured. However if a child component throws an errors no components are rendered. For this reason you can wrap each component you feel may fail in `ErrorBoundary` however the downside to this is that you will have `ErrorBoundary` scattered thoughtout the code base. For this reason we have wrapped the `ErrorBoundary` in highier order component, this allows us to call the HoC when exporting the component you want to handle errors. Please see `ErrorBoundaryHoC.tsx`.
+   When errors occur within a component, for exmaple `toString()` being called on a property which is a `number` the `ErrorBoundary` captures this and displays JSX with an error message. The root `App.tsx` is wrapped in an `ErrorBoundary` component which means all component level errors are captured. However if a child component throws an errors no components are rendered. For this reason you can wrap each component you feel may fail in `ErrorBoundary` however the downside to this is that you will have `ErrorBoundary` scattered thoughtout the code base. For this reason we have wrapped the `ErrorBoundary` in highier order component, this allows us to call the HoC when exporting the component you want to handle errors. Please see `ErrorBoundaryHoC.tsx`.
 
 2. API call level.
-TBC
+   TBC
 
 3. Internal Redux action level.
-TBC
+   TBC
 
 # Possible build errors
 
