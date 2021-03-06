@@ -44,16 +44,16 @@ const VotingCard = ({ imageSrc, id, voteCount }: { imageSrc: string, id: string,
         </Col>
       </Row>
       <Row>
-        <Col sm="3">
+        <Col>
           {displayFavorited ? favorite() : unFavorite()}
         </Col>
-        <Col sm="3">
+        <Col>
           <img onClick={(): void => onVoteClick(1)} alt="thumbsUp" src={thumbsUp} className={`${styles.icon}`} />
         </Col>
-        <Col sm="3">
+        <Col>
           <img onClick={(): void => onVoteClick(0)} alt="thumbsDown" src={thumbsDown} className={`${styles.icon}`} />
         </Col>
-        <Col sm="3">
+        <Col>
           <div className={`d-inline`}>{voteCounter}</div>
         </Col>
       </Row>
