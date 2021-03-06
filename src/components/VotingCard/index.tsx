@@ -5,7 +5,6 @@ import outlineHeart from '../../assets/images/heart-outline.svg';
 import thumbsUp from '../../assets/images/thumbs-up.svg';
 import thumbsDown from '../../assets/images/thumbs-down.svg';
 
-import styles from "./VotingCard.module.css";
 import useFavourite from "../../hooks/useFavourite/useFavourite";
 import useVotes from "../../hooks/useVotes/useVotes";
 import { Col, Row } from "reactstrap";
