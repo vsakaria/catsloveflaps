@@ -18,13 +18,11 @@ test('can select an image and upload will make a request to upload it', async ()
   const { getByLabelText, getByText } = render(
     <Uploader />,
   )
-  const file = new File(['(⌐□_□)'], 'chucknorris.png', { type: 'image/png' })
+  const file = new File(['(⌐□_□)'], 'cats.png', { type: 'image/png' })
   const imageInput = getByLabelText('Image Upload')
   Simulate.change(imageInput, { target: { files: [file] } })
 
   await waitFor(() => screen.findByAltText('previewImage'))
   expect(screen.getByAltText('previewImage')).toBeInTheDocument()
-
-  // ensure the form is submittable
   expect(getByText('Upload')).toBeInTheDocument()
 })
