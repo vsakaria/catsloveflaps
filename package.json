@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.21.1",
+    "axios-mock-adapter": "^1.19.0",
+    "bootstrap": "^4.6.0",
+    "moxios": "^0.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
@@ -55,7 +59,7 @@
     "@babel/core": "^7.6.4",
     "@babel/plugin-syntax-jsx": "^7.2.0",
     "@babel/plugin-syntax-typescript": "^7.3.3",
-    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.6.3",
     "@babel/preset-typescript": "^7.6.0",
     "@testing-library/jest-dom": "^5.11.9",
@@ -64,6 +68,7 @@
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/enzyme-to-json": "^1.5.3",
     "@types/jest": "24.0.15",
+    "@types/moxios": "^0.4.10",
     "@types/node": "12.6.0",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
@@ -84,6 +89,7 @@
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
     "husky": "^3.0.9",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-junit": "^6.4.0",
     "prettier": "^1.18.2",
     "react-test-renderer": "^16.8.6",
@@ -92,8 +98,7 @@
     "sonarqube-scanner-node": "0.0.10",
     "typescript": "^3.6.4",
     "webpack-cli": "^3.3.9",
-    "webpack-merge": "^4.2.2",
-    "jest-environment-jsdom-sixteen": "^1.0.3"
+    "webpack-merge": "^4.2.2"
   },
   "jest": {
     "snapshotSerializers": [
@@ -114,7 +119,7 @@
       "!node_modules/",
       "!src/serviceWorker.ts",
       "!src/react-app-env.d.ts",
-      "!src/**/index.{ts,tsx}",
+      "!src/index.{ts,tsx}",
       "!src/**/I[A-Z]*.ts",
       "!src/shared/store/applicationStore.ts",
       "!src/App.tsx",
